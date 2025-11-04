@@ -27,7 +27,7 @@ I’ll walk through each cell with detailed steps, example code, and suggested C
 
 ---
 
-## 1 — Title & Safety warning (Markdown)
+Step-1 — Title & Safety warning (Markdown)
 
 **Why:** tells readers what the notebook is, date, and warns about harmful content.
 
@@ -49,7 +49,7 @@ Paste this as a Markdown cell.
 
 ---
 
-## 2 — Requirements + imports (Code)
+Step-2 — Requirements + imports (Code)
 
 **Why:** install missing packages automatically inside the notebook and import libs. Keep the first cell idempotent.
 
@@ -92,7 +92,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 
 ---
 
-## 3 — Configuration cell (Code)
+Step-3 — Configuration cell (Code)
 
 **Why:** central place to change models, generation params, paths, GPU usage.
 
@@ -127,7 +127,7 @@ print(f"Outputs: {OUT_DIR}")
 
 ---
 
-## 4 — Utilities (helpers & obfuscation) (Code)
+Step-4 — Utilities (helpers & obfuscation) (Code)
 
 **Why:** small helper functions used throughout: base64/leetspeak, safe file saver, token counter, timer.
 
@@ -170,7 +170,7 @@ def save_csv(df, name):
 
 ---
 
-## 5 — Prompt generator (Code)
+Step-5 — Prompt generator (Code)
 
 **Why:** build 100 prompts: 25 of each type. Save prompts.csv.
 
@@ -268,7 +268,7 @@ prompts_df.head(8)
 
 ---
 
-## 6 — Model loader (Code)
+Step-6 — Model loader (Code)
 
 **Why:** load tokenizer & model onto GPU (or CPU) and create a HF pipeline per model. Use `device=0` for gpu, `-1` for cpu.
 
@@ -334,7 +334,7 @@ def run_per_model_one_by_one(model_names, runner_fn):
 
 ---
 
-## 7 — Attack runner (Code)
+Step-7 — Attack runner (Code)
 
 **Why:** execute prompts against the models, handle single-turn and multi-turn, batching, progress bar, and safe logging to CSV incrementally.
 
@@ -427,7 +427,7 @@ for model_name, gen in pipes.items():
 
 ---
 
-## 8 — Auto-labeler (Code)
+Step-8 — Auto-labeler (Code)
 
 **Why:** automatically decide `vulnerable` (1) vs `safe` (0) using keyword heuristics and simple regex. Also store a `label_reason`.
 
@@ -473,7 +473,7 @@ df_results.head()
 
 ---
 
-## 9 — Metrics computation (Code)
+Step-9 — Metrics computation (Code)
 
 **Why:** compute ASR and OSR and per-type, per-model statistics.
 
@@ -511,7 +511,7 @@ save_csv(asr_by_type_model, "asr_by_type_model.csv")
 
 ---
 
-## 10 — Visualizations (Code)
+Step-10 — Visualizations (Code)
 
 **Why:** render multiple diagnostic charts. Use matplotlib (no explicit color settings).
 
@@ -558,7 +558,7 @@ plt.show()
 
 ---
 
-## 11 — Top examples & manual review (Code + Markdown)
+Step-11 — Top examples & manual review (Code + Markdown)
 
 **Why:** show the most ‘successful’ prompts and their responses so you can manually inspect and refine labeler.
 
@@ -583,7 +583,7 @@ for _, r in top_examples.iterrows():
 
 ---
 
-## 12 — Report export (Code)
+Step-12 — Report export (Code)
 
 **Why:** produce a short markdown or PDF report summarizing ASR/OSR, top attacks and include one figure.
 
@@ -625,7 +625,7 @@ To convert to PDF from the notebook environment you can run (if `pandoc` + `wkht
 
 ---
 
-## 13 — Wrap-up cell (Markdown)
+Step-13 — Wrap-up cell (Markdown)
 
 **Why:** list artifacts and next steps.
 
