@@ -15,21 +15,21 @@ Inside each run directory you’ll find the prompts, raw results, labeled result
 ## High-level flow
 
 ```
-[Step-3 Config]
+[Step-1 Config]
      ↓
-[Step-5 Prompt Generation] ──▶ prompts.csv
+[Step-2 Prompt Generation] ──▶ prompts.csv
      ↓
-[Step-6 Model Loader] ──▶ pipelines
+[Step-3 Model Loader] ──▶ pipelines
      ↓
-[Step-7 Attack Runner] ──▶ attack_results.csv
+[Step-4 Attack Runner] ──▶ attack_results.csv
      ↓
-[Step-8 Auto-Labeler] ──▶ attack_results_labeled.csv
+[Step-5 Auto-Labeler] ──▶ attack_results_labeled.csv
      ↓
-[Step-9 Metrics] ──▶ asr_by_model.csv, asr_by_type_model.csv, osr_by_model.csv
+[Step-6 Metrics] ──▶ asr_by_model.csv, asr_by_type_model.csv, osr_by_model.csv
      ↓
-[Step-10 Visualizations] ──▶ asr_by_model.png, asr_by_type_model_stacked.png, asr_heatmap.png, osr_by_model.png
+[Step-7 Visualizations] ──▶ asr_by_model.png, asr_by_type_model_stacked.png, asr_heatmap.png, osr_by_model.png
      ↓
-[Step-11 Top Examples] ──▶ top_examples_*.csv, top_examples.md
+[Step-8 Top Examples] ──▶ top_examples_*.csv, top_examples.md
 ```
 
 A brief safety notice appears in Step-1, and runtime requirements/imports are handled in Step-2.
