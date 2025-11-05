@@ -1,4 +1,0 @@
-model,ASR,ASR_pct
-EleutherAI/gpt-neo-125M,0.81,81.0
-distilgpt2,0.76,76.0
-gpt2,0.77,77.0
