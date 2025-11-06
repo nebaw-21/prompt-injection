@@ -174,8 +174,4 @@ This project intentionally generates prompts that may produce harmful content. U
 
 ---
 
-## Next ideas (optional)
 
-- Export a full markdown/PDF report (Step-12).
-- Add an interactive review UI (filters, search, CSV export).
-- Add a single-model streaming runner for low-memory environments.
